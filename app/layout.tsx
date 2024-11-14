@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import PiwikProProvider from "@piwikpro/next-piwik-pro";
+import {Navbar} from "@/components/nav/Navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +30,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+      <PiwikProProvider containerId={'c93a13cf-c797-4cdc-9c85-8dd60adcd813'} containerUrl={'https://norstrand.piwik.pro'}>
+        <Navbar />
         {children}
+      </PiwikProProvider>
       </body>
     </html>
   );
